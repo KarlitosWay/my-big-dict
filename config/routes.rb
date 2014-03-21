@@ -1,4 +1,10 @@
 MyBigDict::Application.routes.draw do
+
+  root  'core_pages#home'
+  match '/help',    to: 'core_pages#help',    via: 'get'
+  match '/about',   to: 'core_pages#about',   via: 'get'
+  match '/contact', to: 'core_pages#contact', via: 'get'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
