@@ -1,5 +1,6 @@
 MyBigDict::Application.routes.draw do
 
+  get "dictionary/show"
   root  'core_pages#home'
   match '/help',    to: 'core_pages#help',    via: 'get'
   match '/about',   to: 'core_pages#about',   via: 'get'
