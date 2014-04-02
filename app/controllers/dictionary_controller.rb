@@ -11,4 +11,8 @@ class DictionaryController < ApplicationController
     end
   end
 
+  def new
+    @dictionary = Dictionary.new
+  end
+
 end

@@ -1,19 +1,29 @@
+<% provide(:title, 'Query Dictionary') %>
+
 <h1><%= @lang[:long_descr] %></h1>
 
+<div>
+  <%= form_tag(dictionary_show_path, method: 'get') do %>
+      <%= text_field_tag('word',
+                         @word ? @word : 'Enter word here',
+                         maxlength: 50,
+                         class: 'field') %>
+      <%= hidden_field_tag('lang', @lang[:id]) %>
+      <%= submit_tag('Find', class: "btn btn-small btn-primary") %>
+  <% end %>
 
-<%= form_tag(dictionary_show_path, method: 'get') do %>
-    <%= text_field_tag('word',
-                       @word ? @word : 'Enter word here',
-                       maxlength: 50,
-                       class: 'field') %>
-    <%= hidden_field_tag('lang', @lang[:id]) %>
-    <%= submit_tag('Find', class: "btn btn-small btn-primary") %>
-<% end %>
+  <% if @word %>
+      <% if @description %>
+          <%= @description %>
+      <% else %>
+          Sorry, we don't have anything for this word yet
+      <% end %>
+  <% end %>
+</div>
 
-<% if @word %>
-    <% if @description %>
-      <%= @description %>
-    <% else %>
-      Sorry, we couldn't find anything.
-    <% end %>
-<% end %>
+<div>
+  <hr>
+  <%= link_to "Add words to this dictionary!",
+              {controller: 'dictionary', action: 'new', lang: @lang[:id]},
+              class: "btn btn-large btn-primary" %>
+</div>
