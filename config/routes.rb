@@ -2,8 +2,10 @@ MyBigDict::Application.routes.draw do
 
   root 'core_pages#home'
 
-  get "dictionary/show"
-  get "dictionary/new"
+  #get "dictionaries/new"
+  get "dictionaries/show"
+  #post "dictionaries/create"
+  resources :dictionaries, only: [:new, :create]
 
   match '/help',      to: 'core_pages#help',    via: 'get'
   match '/about',     to: 'core_pages#about',   via: 'get'

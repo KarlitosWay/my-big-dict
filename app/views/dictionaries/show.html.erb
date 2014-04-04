@@ -3,7 +3,7 @@
 <h1><%= @lang[:long_descr] %></h1>
 
 <div>
-  <%= form_tag(dictionary_show_path, method: 'get') do %>
+  <%= form_tag(dictionaries_show_path, method: 'get') do %>
       <%= text_field_tag('word',
                          @word ? @word : 'Enter word here',
                          maxlength: 50,
@@ -24,6 +24,6 @@
 <div>
   <hr>
   <%= link_to "Add words to this dictionary!",
-              {controller: 'dictionary', action: 'new', lang: @lang[:id]},
+              {controller: 'dictionaries', action: 'new', lang: @lang[:id]},
               class: "btn btn-large btn-primary" %>
 </div>

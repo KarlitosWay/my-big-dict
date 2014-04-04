@@ -1,4 +1,4 @@
-class DictionaryController < ApplicationController
+class DictionariesController < ApplicationController
 
   def show
     @lang = LangEnum.find(params[:lang])
@@ -13,6 +13,10 @@ class DictionaryController < ApplicationController
 
   def new
     @dictionary = Dictionary.new
+  end
+
+  def create
+
   end
 
 end

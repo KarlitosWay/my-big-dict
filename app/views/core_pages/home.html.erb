@@ -4,8 +4,14 @@
   This is the home page for your Community Dictionary
 </p>
 
-<%= form_tag(dictionary_show_path, method: 'get') do %>
-    <%= select_tag('lang',
+<!--
+# TODO
+# Shouldn't need to go to /dictionaries/show?lang=<selection>,
+# should be able to go to /dictionaries/<selection> (e.g. /dictionaries/1)
+# This way resources :dictionaries will work for the implicit show path
+-->
+<%= form_tag(dictionaries_show_path, method: 'get') do %>
+    <%= select_tag(:lang,
                    options_from_collection_for_select(LangEnum.all.collect, 'id', 'long_descr'),
                    prompt: 'Select a Dictionary',
                    class:  'form-control'
